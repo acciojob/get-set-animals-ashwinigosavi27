@@ -1,44 +1,44 @@
-//complete this code
 class Animal {
-    public void eat()
-    {
-        System.out.println("eat method");
+  constructor(species) {
+    this._species = species;
+  }
 
-    }
-    public void sleep()
-    {
-        System.out.println("sleep method");
+  get species() {
+    return this._species;
+  }
 
-    }
-
+  makeSound() {
+    console.log("The " + this.species + " makes a sound");
+  }
 }
-class Bird extends Animal{
-    @Override
-    public void eat() {
-        super.eat();
-        System.out.println("overide eat");
-    }
 
-    @Override
-    public void sleep() {
-        super.sleep();
-        System.out.println("override sleep");
-    }
-
-    public void fly()
-    {
-        System.out.println("in fly method");
-
-    }
+class Cat extends Animal {
+  purr() {
+    console.log("purr");
+  }
 }
-class Animals{
-    public static void main(String[] args) {
-        Animal a =new Animal();
-        Bird b = new Bird();
-        a.eat();
-        a.sleep();
-        b.eat();
-        b.sleep();
-        b.fly();
-    }
+
+class Dog extends Animal {
+  bark() {
+    console.log("woof");
+  }
 }
+
+const animal = new Animal("Unknown");
+console.log(animal.species); 
+animal.makeSound(); 
+
+const cat = new Cat("Cat");
+console.log(cat.species); 
+cat.makeSound(); 
+cat.purr();
+
+const dog = new Dog("Dog");
+console.log(dog.species); 
+dog.makeSound(); 
+dog.bark(); 
+
+// Do not change the code below this line
+window.Animal = Animal;
+window.Dog = Dog;
+window.Cat = Cat;
